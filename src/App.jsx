@@ -11,20 +11,6 @@ const Portfolio = () => {
     { name: 'Web Development', icon: <Code className="w-6 h-6" />, details: 'React.js, JavaScript (ES6+), Tailwind CSS' },
   ];
 
-/*   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  }; */
-
-/*   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted with data:', formData);
-    setIsSubmitted(true);
-    setFormData({ name: '', email: '', message: '' });
-    setTimeout(() => setIsSubmitted(false), 3000);
-  }; */
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-blue-500/30">
@@ -48,7 +34,7 @@ const Portfolio = () => {
           <div className="order-2 md:order-1">
             <h1 className="text-5xl md:text-7xl font-extrabold mb-6">
               Cloud Solutions <br />
-              <span className="text-blue-500 italic">& Architect</span>
+              <span className="text-blue-500 italic">& Technical Lead</span>
             </h1>
             <p className="text-slate-400 text-lg mb-8 max-w-lg leading-relaxed">
               Specializing in AWS architecture, DevOps automation, and building scalable full-stack applications.
@@ -147,57 +133,7 @@ const Portfolio = () => {
             </a>
           </div>
 
-          {/*          
-           <form onSubmit={handleSubmit} className="space-y-4 text-left bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-xl">
-            <div className="grid md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-slate-400 mb-1">Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-slate-400 mb-1">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
-                />
-              </div>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-slate-400 mb-1">Message</label>
-              <textarea
-                rows="4"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
-              ></textarea>
-            </div>
 
-            <button
-              type="submit"
-              className="w-full py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-bold transition-colors disabled:opacity-50"
-            >
-              {isSubmitted ? 'Message Sent!' : 'Send Message'}
-            </button>
-
-            {isSubmitted && (
-              <p className="text-emerald-400 text-center text-sm mt-2">
-                Thank you! I'll get back to you soon.
-              </p>
-            )}
-          </form> */}
         </div>
       </section>
 
