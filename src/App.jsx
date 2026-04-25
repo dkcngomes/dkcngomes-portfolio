@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import {  Linkedin,   Code, Server, Cloud, User, Phone, Award } from 'lucide-react';
+import { Linkedin, Code, Server, Cloud, User, Phone, Award } from 'lucide-react';
 
 const Portfolio = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [isSubmitted, setIsSubmitted] = useState(false);
+/*   const [formData, setFormData] = useState({ name: '', email: '', message: '' }); */
+  /* const [isSubmitted, setIsSubmitted] = useState(false); */
 
   const skills = [
     { name: 'Cloud Computing', icon: <Cloud className="w-6 h-6" />, details: 'AWS Certified, Infrastructure as Code, Cloud Migration' },
@@ -11,20 +11,20 @@ const Portfolio = () => {
     { name: 'Web Development', icon: <Code className="w-6 h-6" />, details: 'React.js, JavaScript (ES6+), Tailwind CSS' },
   ];
 
-  const handleChange = (e) => {
+/*   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
-  };
+  }; */
 
-  const handleSubmit = (e) => {
+/*   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted with data:', formData);
     setIsSubmitted(true);
     setFormData({ name: '', email: '', message: '' });
     setTimeout(() => setIsSubmitted(false), 3000);
-  };
+  }; */
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-blue-500/30">
@@ -36,7 +36,7 @@ const Portfolio = () => {
           </span>
           <div className="flex gap-6 text-sm font-medium">
             <a href="#about" className="hover:text-blue-400 transition-colors">About</a>
-           {/*  <a href="#projects" className="hover:text-blue-400 transition-colors">Projects</a> */}
+            {/*  <a href="#projects" className="hover:text-blue-400 transition-colors">Projects</a> */}
             <a href="#contact" className="hover:text-blue-400 transition-colors text-blue-400">Hire Me</a>
           </div>
         </div>
@@ -147,7 +147,7 @@ const Portfolio = () => {
             </a>
           </div>
 
-{/*           <form onSubmit={handleSubmit} className="space-y-4 text-left bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-xl">
+          {/*           <form onSubmit={handleSubmit} className="space-y-4 text-left bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-xl">
             <div className="grid md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-slate-400 mb-1">Name</label>
