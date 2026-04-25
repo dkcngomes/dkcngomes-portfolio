@@ -36,7 +36,7 @@ const Portfolio = () => {
           </span>
           <div className="flex gap-6 text-sm font-medium">
             <a href="#about" className="hover:text-blue-400 transition-colors">About</a>
-            <a href="#projects" className="hover:text-blue-400 transition-colors">Projects</a>
+           {/*  <a href="#projects" className="hover:text-blue-400 transition-colors">Projects</a> */}
             <a href="#contact" className="hover:text-blue-400 transition-colors text-blue-400">Hire Me</a>
           </div>
         </div>
@@ -147,7 +147,7 @@ const Portfolio = () => {
             </a>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4 text-left bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-xl">
+{/*           <form onSubmit={handleSubmit} className="space-y-4 text-left bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-xl">
             <div className="grid md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-slate-400 mb-1">Name</label>
@@ -196,7 +196,7 @@ const Portfolio = () => {
                 Thank you! I'll get back to you soon.
               </p>
             )}
-          </form>
+          </form> */}
         </div>
       </section>
 
