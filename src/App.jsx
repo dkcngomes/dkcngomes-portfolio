@@ -34,7 +34,7 @@ const Portfolio = () => {
           <div className="order-2 md:order-1">
             <h1 className="text-5xl md:text-7xl font-extrabold mb-6">
               Cloud Solutions <br />
-              <span className="text-blue-500 italic">& Technical Lead</span>
+              <span className="text-blue-500 italic">& Tech Lead</span>
             </h1>
             <p className="text-slate-400 text-lg mb-8 max-w-lg leading-relaxed">
               Specializing in AWS architecture, DevOps automation, and building scalable full-stack applications.
