@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Linkedin, Code, Server, Cloud, User, Phone, Award } from 'lucide-react';
 
 const Portfolio = () => {
@@ -147,7 +147,8 @@ const Portfolio = () => {
             </a>
           </div>
 
-          {/*           <form onSubmit={handleSubmit} className="space-y-4 text-left bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-xl">
+          {/*          
+           <form onSubmit={handleSubmit} className="space-y-4 text-left bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-xl">
             <div className="grid md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-slate-400 mb-1">Name</label>
