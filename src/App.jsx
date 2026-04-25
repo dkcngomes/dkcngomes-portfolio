@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Code, Server, Cloud, User, Phone, Award } from 'lucide-react';
+import {  Linkedin,   Code, Server, Cloud, User, Phone, Award } from 'lucide-react';
 
 const Portfolio = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
