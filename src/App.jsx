@@ -1,14 +1,30 @@
 import React, { useState } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Code, Server, Cloud, User } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, Code, Server, Cloud, User, Phone, Award } from 'lucide-react';
 
 const Portfolio = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const skills = [
     { name: 'Cloud Computing', icon: <Cloud className="w-6 h-6" />, details: 'AWS Certified, Infrastructure as Code, Cloud Migration' },
     { name: 'DevOps & CI/CD', icon: <Server className="w-6 h-6" />, details: 'GitHub Actions, Docker, Kubernetes, Automation' },
     { name: 'Web Development', icon: <Code className="w-6 h-6" />, details: 'React.js, JavaScript (ES6+), Tailwind CSS' },
   ];
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted with data:', formData);
+    setIsSubmitted(true);
+    setFormData({ name: '', email: '', message: '' });
+    setTimeout(() => setIsSubmitted(false), 3000);
+  };
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-blue-500/30">
@@ -35,26 +51,41 @@ const Portfolio = () => {
               <span className="text-blue-500 italic">& Architect</span>
             </h1>
             <p className="text-slate-400 text-lg mb-8 max-w-lg leading-relaxed">
-              Specializing in AWS architecture, DevOps automation, and building scalable full-stack applications. 
+              Specializing in AWS architecture, DevOps automation, and building scalable full-stack applications.
               Turning complex business requirements into robust technical solutions.
             </p>
-            <div className="flex gap-4">
-              <a href="https://www.linkedin.com/in/nipuna-c-gomes-39500743/" target="_blank" rel="noreferrer" 
-                 className="p-3 bg-slate-900 rounded-xl hover:bg-slate-800 border border-slate-800 transition-all">
-                <Linkedin className="w-6 h-6 text-blue-400" />
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap gap-4">
+              <a href="https://www.linkedin.com/in/nipuna-c-gomes-39500743/" target="_blank" rel="noreferrer"
+                className="p-3 bg-slate-900 rounded-xl hover:bg-slate-800 border border-slate-800 transition-all flex items-center justify-center group"
+                title="LinkedIn Profile">
+                <Linkedin className="w-6 h-6 text-blue-400 group-hover:scale-110 transition-transform" />
               </a>
-              <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-xl font-semibold transition-all shadow-lg shadow-blue-900/20">
+
+              <a href="https://www.credly.com/badges/01da665b-bcfd-49d1-afc7-421f91ba30cc" target="_blank" rel="noreferrer"
+                className="p-3 bg-slate-900 rounded-xl hover:bg-slate-800 border border-slate-800 transition-all flex items-center gap-2 group"
+                title="View Credly Badge">
+                <Award className="w-6 h-6 text-amber-400 group-hover:scale-110 transition-transform" />
+                <span className="font-medium pr-2 text-slate-300 group-hover:text-amber-400 transition-colors">AWS Certified</span>
+              </a>
+
+              <a
+                href="/documents/cv_nipuna_c_gomes.pdf"
+                download="Nipuna_Gomes_CV.pdf"
+                className="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-xl font-semibold transition-all shadow-lg shadow-blue-900/20 inline-block text-center"
+              >
                 Download CV
-              </button>
+              </a>
             </div>
           </div>
-          
+
           <div className="order-1 md:order-2 flex justify-center">
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-emerald-600 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-              <img 
-                src="/profile.png" 
-                alt="Nipuna Gomes" 
+              <img
+                src="images/dp.png"
+                alt="Nipuna Gomes"
                 className="relative w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-slate-900 shadow-2xl"
               />
             </div>
@@ -71,13 +102,13 @@ const Portfolio = () => {
                 <User className="text-blue-500" /> About Me
               </h2>
               <p className="text-slate-400 leading-relaxed mb-6">
-                With a background deeply rooted in Infrastructure and IT management, I bridge the gap between 
-                legacy systems and modern cloud architectures. I am passionate about AWS services, 
+                With a background deeply rooted in Infrastructure and IT management, I bridge the gap between
+                legacy systems and modern cloud architectures. I am passionate about AWS services,
                 serverless computing, and building responsive user interfaces with React.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {skills.map((skill, i) => (
-                  <div key={i} className="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                  <div key={i} className="p-4 bg-slate-950 rounded-xl border border-slate-800 hover:border-slate-700 transition-colors">
                     <div className="text-blue-500 mb-2">{skill.icon}</div>
                     <h4 className="font-bold mb-1">{skill.name}</h4>
                     <p className="text-xs text-slate-500 leading-tight">{skill.details}</p>
@@ -93,26 +124,78 @@ const Portfolio = () => {
       <section id="contact" className="py-20 px-6">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-4">Let's Work Together</h2>
-          <p className="text-slate-400 mb-10">Currently available for freelance projects and consulting.</p>
-          
-          <form className="space-y-4 text-left bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-xl">
+          <p className="text-slate-400 mb-8">Currently available for freelance projects and consulting.</p>
+
+          {/* Direct Contact Links */}
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10">
+            <a
+              href="tel:+94772422777"
+              className="flex items-center justify-center gap-3 text-slate-300 hover:text-blue-400 transition-colors bg-slate-900 px-6 py-4 rounded-xl border border-slate-800 hover:border-blue-500/50 group"
+            >
+              <Phone className="w-5 h-5 text-blue-500 group-hover:scale-110 transition-transform" />
+              <span className="font-medium">+94 77 242 2777</span>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/nipuna-c-gomes-39500743/"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center justify-center gap-3 text-slate-300 hover:text-blue-400 transition-colors bg-slate-900 px-6 py-4 rounded-xl border border-slate-800 hover:border-blue-500/50 group"
+            >
+              <Linkedin className="w-5 h-5 text-blue-500 group-hover:scale-110 transition-transform" />
+              <span className="font-medium">Connect on LinkedIn</span>
+            </a>
+          </div>
+
+          <form onSubmit={handleSubmit} className="space-y-4 text-left bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-xl">
             <div className="grid md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-slate-400 mb-1">Name</label>
-                <input type="text" className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                />
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate-400 mb-1">Email</label>
-                <input type="email" className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                />
               </div>
             </div>
             <div>
               <label className="block text-sm font-medium text-slate-400 mb-1">Message</label>
-              <textarea rows="4" className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none"></textarea>
+              <textarea
+                rows="4"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+              ></textarea>
             </div>
-            <button className="w-full py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-bold transition-colors">
-              Send Message
+
+            <button
+              type="submit"
+              className="w-full py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-bold transition-colors disabled:opacity-50"
+            >
+              {isSubmitted ? 'Message Sent!' : 'Send Message'}
             </button>
+
+            {isSubmitted && (
+              <p className="text-emerald-400 text-center text-sm mt-2">
+                Thank you! I'll get back to you soon.
+              </p>
+            )}
           </form>
         </div>
       </section>
