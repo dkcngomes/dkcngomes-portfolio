@@ -123,7 +123,7 @@ const Portfolio = () => {
             </a>
 
             <a
-              href="https://www.linkedin.com/in/nipuna-c-gomes-39500743/"
+              href="https://www.linkedin.com/in/nipuna-gomes/"
               target="_blank"
               rel="noreferrer"
               className="flex items-center justify-center gap-3 text-slate-300 hover:text-blue-400 transition-colors bg-slate-900 px-6 py-4 rounded-xl border border-slate-800 hover:border-blue-500/50 group"
