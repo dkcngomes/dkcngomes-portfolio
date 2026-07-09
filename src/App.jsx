@@ -6,7 +6,6 @@ import {
   Server,
   Cloud,
   User,
-  Phone,
   Award,
   Github,
   ExternalLink,
