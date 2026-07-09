@@ -5,7 +5,7 @@
 :root {
   --bg-primary: #0a0f1e;
   --bg-secondary: #0f172a;
-  --accent: #38bdf8;
+  --accent: #818cf8;
   --gold: #fbbf24;
   --text-primary: #f1f5f9;
   --text-muted: #94a3b8;
@@ -36,7 +36,7 @@ body {
   background: #0a0f1e;
 }
 ::-webkit-scrollbar-thumb {
-  background: #38bdf8;
+  background: #818cf8;
   border-radius: 2px;
 }
 
@@ -56,9 +56,9 @@ body {
 
 /* Gradient mesh background */
 .mesh-gradient {
-  background: radial-gradient(ellipse at 20% 50%, rgba(56, 189, 248, 0.07) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 20%, rgba(251, 191, 36, 0.04) 0%, transparent 50%),
-    radial-gradient(ellipse at 60% 80%, rgba(14, 165, 233, 0.05) 0%, transparent 50%),
+  background: radial-gradient(ellipse at 20% 50%, rgba(129, 140, 248, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(129, 140, 248, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 80%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
     #0a0f1e;
 }
 
@@ -83,7 +83,7 @@ body {
   position: absolute;
   inset: -1px;
   border-radius: inherit;
-  background: linear-gradient(135deg, #38bdf8, #0ea5e9, transparent, transparent);
+  background: linear-gradient(135deg, #818cf8, #6366f1, transparent, transparent);
   z-index: -1;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -98,18 +98,18 @@ body {
   align-items: center;
   padding: 4px 14px;
   border-radius: 9999px;
-  border: 1px solid rgba(56, 189, 248, 0.25);
-  background: rgba(56, 189, 248, 0.06);
-  color: #7dd3fc;
+  border: 1px solid rgba(129, 140, 248, 0.25);
+  background: rgba(129, 140, 248, 0.06);
+  color: #a5b4fc;
   font-size: 0.78rem;
   font-family: "JetBrains Mono", monospace;
   letter-spacing: 0.02em;
   transition: all 0.2s ease;
 }
 .skill-pill:hover {
-  background: rgba(56, 189, 248, 0.15);
-  border-color: rgba(56, 189, 248, 0.5);
-  color: #bae6fd;
+  background: rgba(129, 140, 248, 0.15);
+  border-color: rgba(129, 140, 248, 0.5);
+  color: #c7d2fe;
 }
 
 /* Navigation */
@@ -128,7 +128,7 @@ body {
   left: 0;
   width: 0;
   height: 1px;
-  background: #38bdf8;
+  background: #818cf8;
   transition: width 0.3s ease;
 }
 .nav-link:hover {
@@ -151,8 +151,8 @@ body {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #38bdf8;
-  box-shadow: 0 0 12px rgba(56, 189, 248, 0.6);
+  background: #818cf8;
+  box-shadow: 0 0 12px rgba(129, 140, 248, 0.6);
 }
 .timeline-item::after {
   content: "";
@@ -161,7 +161,7 @@ body {
   top: 20px;
   width: 1px;
   height: calc(100% + 1.5rem);
-  background: linear-gradient(to bottom, rgba(56, 189, 248, 0.4), transparent);
+  background: linear-gradient(to bottom, rgba(129, 140, 248, 0.4), transparent);
 }
 .timeline-item:last-child::after {
   display: none;
@@ -171,7 +171,7 @@ body {
 .form-input {
   width: 100%;
   background: rgba(15, 23, 42, 0.8);
-  border: 1px solid rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(129, 140, 248, 0.15);
   border-radius: 8px;
   padding: 0.85rem 1rem;
   color: #f1f5f9;
@@ -184,15 +184,15 @@ body {
   color: #475569;
 }
 .form-input:focus {
-  border-color: rgba(56, 189, 248, 0.5);
-  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.08);
+  border-color: rgba(129, 140, 248, 0.5);
+  box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.08);
 }
 
 /* Decorative line */
 .deco-line {
   width: 48px;
   height: 2px;
-  background: linear-gradient(to right, #38bdf8, transparent);
+  background: linear-gradient(to right, #818cf8, transparent);
 }
 
 /* Star decoration */
