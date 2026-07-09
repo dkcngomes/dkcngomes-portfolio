@@ -96,8 +96,8 @@ const Portfolio = () => {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
             <h1 className="text-5xl md:text-7xl font-extrabold mb-6">
-              Cloud Solutions <br />
-              <span className="text-indigo-500 italic">& Tech Lead</span>
+              Experienced <br />
+              <span className="text-indigo-500 ">Engineer</span>
             </h1>
             <p className="text-slate-400 text-lg mb-8 max-w-lg leading-relaxed">
               Specializing in AWS architecture, DevOps automation, and building
@@ -130,13 +130,6 @@ const Portfolio = () => {
                 </span>
               </a>
 
-              <a
-                href="/documents/cv_nipuna_c_gomes.pdf"
-                download="Nipuna_Gomes_CV.pdf"
-                className="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-xl font-semibold transition-all shadow-lg shadow-indigo-900/20 inline-block text-center"
-              >
-                Download CV
-              </a>
             </div>
           </div>
 
@@ -253,21 +246,13 @@ const Portfolio = () => {
       <section id="contact" className="py-20 px-6">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-4">Let's Work Together</h2>
-          <p className="text-slate-400 mb-8">
+   {/*        <p className="text-slate-400 mb-8">
             Currently available for freelance projects and consulting.
-          </p>
+          </p> */}
 
           {/* Direct Contact Links */}
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10">
-            <a
-              href="tel:+94772422777"
-              className="flex items-center justify-center gap-3 text-slate-300 hover:text-indigo-400 transition-colors bg-slate-900 px-6 py-4 rounded-xl border border-slate-800 hover:border-indigo-500/50 group"
-            >
-              <Phone className="w-5 h-5 text-indigo-500 group-hover:scale-110 transition-transform" />
-              <span className="font-medium">+94 77 242 2777</span>
-            </a>
-
-            <a
+             <a
               href="https://www.linkedin.com/in/nipuna-gomes/"
               target="_blank"
               rel="noreferrer"
