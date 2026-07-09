@@ -1,3 +1,4 @@
+import Spotlight from './Spotlight';
 import React from "react";
 import {
   Linkedin,
@@ -64,6 +65,7 @@ const Portfolio = () => {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-blue-500/30">
       {/* Navigation */}
+      <Spotlight />
       <nav className="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <span className="text-xl font-bold bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
