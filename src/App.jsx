@@ -96,8 +96,8 @@ const Portfolio = () => {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
             <h1 className="text-5xl md:text-7xl font-extrabold mb-6">
-              Experienced <br />
-              <span className="text-indigo-500 ">Engineer</span>
+              An Experienced <br />
+              <span className="text-indigo-500 ">Software Engineer</span>
             </h1>
             <p className="text-slate-400 text-lg mb-8 max-w-lg leading-relaxed">
               Specializing in AWS architecture, DevOps automation, and building
