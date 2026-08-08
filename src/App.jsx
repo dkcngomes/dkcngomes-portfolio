@@ -159,7 +159,7 @@ const Portfolio = () => {
               href="#contact"
               className="hover:text-indigo-400 transition-colors text-indigo-400"
             >
-              Hire Me
+              Contact
             </a>
           </div>
         </div>
@@ -185,7 +185,7 @@ const Portfolio = () => {
             {/* Action Buttons */}
             <div className="flex flex-wrap gap-4">
               <a
-                href="https://www.linkedin.com/in/nipuna-c-gomes-39500743/"
+                href="https://www.linkedin.com/in/nipuna-gomes/"
                 target="_blank"
                 rel="noreferrer"
                 className="p-3 bg-slate-900 rounded-xl hover:bg-slate-800 border border-slate-800 transition-all flex items-center justify-center group"
