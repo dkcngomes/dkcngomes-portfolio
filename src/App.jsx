@@ -1,5 +1,5 @@
 import Spotlight from './Spotlight';
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Linkedin,
   Code,
@@ -10,6 +10,8 @@ import {
   Github,
   ExternalLink,
   Briefcase,
+  ChevronLeft,
+  ChevronRight,
   MapPin,
   Mail,
   Shield,
@@ -107,6 +109,14 @@ const Portfolio = () => {
 
   const projects = [
     {
+      name: "AI News",
+      description:
+        "A zero-dependency AI news aggregator that scrapes TechCrunch, The Verge, VentureBeat, Wired, and Hacker News every hour via GitHub Actions, then serves a fast static card-grid site with search and source filtering — fully automated and $0/month.",
+      tags: ["Python", "GitHub Actions", "RSS", "GitHub Pages"],
+      liveUrl: "https://dkcngomes.github.io/ai-news/",
+      repoUrl: "https://github.com/dkcngomes/ai-news",
+    },
+    {
       name: "Climate Survival",
       description:
         "A climate-adaptive advisory platform that detects El Niño / La Niña, drought, flood, and heatwave signals, then recommends what to stock up on and which crops to plant before weather shifts. Features Google Gemini LLM re-ranking, interactive charts, a downloadable PDF survival report, live Sri Lanka market prices, and 5-language support.",
@@ -132,6 +142,22 @@ const Portfolio = () => {
       repoUrl: null,
     },
   ];
+
+  // --- Projects carousel state ---
+  const [current, setCurrent] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  const goTo = (index) =>
+    setCurrent((index + projects.length) % projects.length);
+  const next = () => goTo(current + 1);
+  const prev = () => goTo(current - 1);
+
+  useEffect(() => {
+    if (paused) return;
+    const timer = setInterval(next, 5000);
+    return () => clearInterval(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [paused, current]);
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-blue-500/30">
@@ -318,49 +344,98 @@ const Portfolio = () => {
                 real-time platforms and climate-resilience apps.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {projects.map((project, i) => (
+              {/* Carousel */}
+              <div
+                className="relative max-w-3xl mx-auto"
+                onMouseEnter={() => setPaused(true)}
+                onMouseLeave={() => setPaused(false)}
+              >
+                {/* Slide counter */}
+                <div className="text-xs text-slate-500 mb-4 text-center font-mono">
+                  {current + 1} / {projects.length}
+                </div>
+
+                <div className="overflow-hidden rounded-2xl">
                   <div
-                    key={i}
-                    className="group flex flex-col p-6 bg-slate-950 rounded-2xl border border-slate-800 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-900/20"
+                    className="flex transition-transform duration-500 ease-in-out"
+                    style={{ transform: `translateX(-${current * 100}%)` }}
                   >
-                    <h3 className="text-lg font-bold mb-3 text-slate-100 group-hover:text-indigo-400 transition-colors">
-                      {project.name}
-                    </h3>
-                    <p className="text-sm text-slate-400 leading-relaxed mb-5 flex-1">
-                      {project.description}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2 mb-5">
-                      {project.tags.map((tag, t) => (
-                        <span key={t} className="skill-pill">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="flex items-center gap-4 mt-auto">
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="flex items-center gap-2 text-sm font-medium text-indigo-400 hover:text-indigo-300 transition-colors"
+                    {projects.map((project, i) => (
+                      <div
+                        key={i}
+                        className="w-full flex-shrink-0 group flex flex-col p-6 md:p-8 bg-slate-950 border border-slate-800 hover:border-indigo-500/50 transition-colors duration-300 min-h-[300px]"
                       >
-                        <ExternalLink className="w-4 h-4" /> Live
-                      </a>
-                      {project.repoUrl && (
-                        <a
-                          href={project.repoUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="flex items-center gap-2 text-sm font-medium text-slate-400 hover:text-slate-200 transition-colors"
-                        >
-                          <Github className="w-4 h-4" /> Code
-                        </a>
-                      )}
-                    </div>
+                        <h3 className="text-xl font-bold mb-3 text-slate-100 group-hover:text-indigo-400 transition-colors">
+                          {project.name}
+                        </h3>
+                        <p className="text-sm text-slate-400 leading-relaxed mb-5 flex-1">
+                          {project.description}
+                        </p>
+
+                        <div className="flex flex-wrap gap-2 mb-5">
+                          {project.tags.map((tag, t) => (
+                            <span key={t} className="skill-pill">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+
+                        <div className="flex items-center gap-4 mt-auto">
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="flex items-center gap-2 text-sm font-medium text-indigo-400 hover:text-indigo-300 transition-colors"
+                          >
+                            <ExternalLink className="w-4 h-4" /> Live
+                          </a>
+                          {project.repoUrl && (
+                            <a
+                              href={project.repoUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="flex items-center gap-2 text-sm font-medium text-slate-400 hover:text-slate-200 transition-colors"
+                            >
+                              <Github className="w-4 h-4" /> Code
+                            </a>
+                          )}
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                </div>
+
+                {/* Prev / Next arrows */}
+                <button
+                  onClick={prev}
+                  aria-label="Previous project"
+                  className="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 md:-ml-6 p-2 rounded-full bg-slate-900 border border-slate-700 text-slate-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-colors z-10"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button
+                  onClick={next}
+                  aria-label="Next project"
+                  className="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 md:-mr-6 p-2 rounded-full bg-slate-900 border border-slate-700 text-slate-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-colors z-10"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+
+                {/* Dots */}
+                <div className="flex justify-center gap-2 mt-6">
+                  {projects.map((project, i) => (
+                    <button
+                      key={i}
+                      onClick={() => goTo(i)}
+                      aria-label={`Go to project ${i + 1}: ${project.name}`}
+                      className={`h-2 rounded-full transition-all duration-300 ${
+                        i === current
+                          ? "w-8 bg-indigo-500"
+                          : "w-2 bg-slate-700 hover:bg-slate-500"
+                      }`}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
