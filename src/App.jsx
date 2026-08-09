@@ -109,6 +109,14 @@ const Portfolio = () => {
 
   const projects = [
     {
+      name: "Frame to Facts (NewsVision AI)",
+      description:
+        "An AI journalism tool that transforms any uploaded image into a professional, fact-based newspaper article. OpenAI vision analyzes people, objects, scenes, and context, then drafts a headline, lead, and body with strict anti-hallucination guardrails — supporting editing, history, and PDF/Word/Markdown export.",
+      tags: ["React", "TypeScript", "OpenAI Vision", "TanStack", "Supabase"],
+      liveUrl: "https://frame-to-facts.lovable.app",
+      repoUrl: "https://github.com/dkcngomes/frame-to-facts",
+    },
+    {
       name: "AI News",
       description:
         "A zero-dependency AI news aggregator that scrapes TechCrunch, The Verge, VentureBeat, Wired, and Hacker News every hour via GitHub Actions, then serves a fast static card-grid site with search and source filtering — fully automated and $0/month.",
