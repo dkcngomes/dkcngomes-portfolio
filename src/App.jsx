@@ -221,9 +221,9 @@ const Portfolio = () => {
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-emerald-600 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
               <img
-                src="images/profilepic.jpg"
+                src="images/new_dp.jpeg"
                 alt="Nipuna Gomes — AWS Certified Tech Lead and React & .NET Full Stack Developer"
-                className="relative w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-slate-900 shadow-2xl"
+                className="relative w-84 h-74 md:w-80 md:h-80 object-cover rounded-full border-4 border-slate-900 shadow-2xl"
               />
             </div>
           </div>
